@@ -6,7 +6,7 @@ const int SQEQ_INF = -1;
 const int ERROR = 404;
 const double e = 0.0000000001;
 
-//! Search discriminant quadratic equation
+//! Search for discriminant of quadratic equation
 //! @param a coefficient of x^2
 //! @param b coefficient of x
 //! @param c free coefficient
