@@ -33,7 +33,7 @@ bool IsZero ( double a )
 //! @return true, if a equals b, or false,if a not equals b
 bool IsEql (double a, double b)
 {
-    if ( fabs(a-b) < e )
+    if ( fabs( a - b ) < e )
         return true;
     else
         return false;
