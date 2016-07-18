@@ -21,7 +21,7 @@ double SearchDsnt ( double a, double b, double c )
 //! @return true, if a is zero, or false,if a not zero
 bool IsZero ( double a )
 {
-  return ( fabs(a) < e )
+   return if ( fabs(a) < e )
 }
 
 //! Сomparing numbers with a precision equal to e(line 7)
@@ -42,7 +42,7 @@ bool IsEql (double a, double b)
 int SqEquation ( double a, double b, double c, double* x )
 {
 
-  assert( x );
+   assert( x );
 
   if ( IsZero(a) && IsZero(b) && !IsZero(c) ) //с=0,conflicts with c<>0
       return ERROR;
