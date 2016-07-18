@@ -13,7 +13,7 @@ const double e = 0.0000000001;
 //! @return discriminant
 double SDis ( double a, double b, double c)
 {
-    return b*b-4*a*c;
+    return b*b - 4*a*c;
 }
 
 //! Comparison with zero with a precision equal to e(line 7)
