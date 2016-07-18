@@ -7,11 +7,11 @@ const int ERROR = 404;
 const double e = 0.0000000001;
 
 //! Search discriminant quadratic equation
-//! @param a first coefficient
-//! @param b second coefficient
-//! @param c third coefficient
+//! @param a coefficient of x^2
+//! @param b coefficient of x
+//! @param c free coefficient
 //! @return discriminant
-double SDis ( double a, double b, double c)
+double SearchDsnt ( double a, double b, double c )
 {
     return b*b - 4*a*c;
 }
@@ -21,10 +21,7 @@ double SDis ( double a, double b, double c)
 //! @return true, if a is zero, or false,if a not zero
 bool IsZero ( double a )
 {
-  if ( fabs(a) < e )
-      return true;
-  else
-      return false;
+  return ( fabs(a) < e )
 }
 
 //! Сomparing numbers with a precision equal to e(line 7)
@@ -33,25 +30,22 @@ bool IsZero ( double a )
 //! @return true, if a equals b, or false,if a not equals b
 bool IsEql (double a, double b)
 {
-    if ( fabs( a - b ) < e )
-        return true;
-    else
-        return false;
+   return if ( fabs( a - b ) < e );
 }
 
 //! Search quadratic equation root
-//! @param a first coefficient
-//! @param b second coefficient
-//! @param c third coefficient
+//! @param a coefficient of x^2
+//! @param b coefficient of x
+//! @param c free coefficient
 //! @param x roots array
 //! @return number of roots or SQEQ_INF, if infinitely many roots
 int SqEquation ( double a, double b, double c, double* x )
 {
 
-  assert( x );// <=> assert(x != NULL)
+  assert( x );
 
-  if ( IsZero(a) && IsZero(b) && !IsZero(c) ) //the equation takes the form: с=0 and c<>0
-      return 0;
+  if ( IsZero(a) && IsZero(b) && !IsZero(c) ) //с=0,conflicts with c<>0
+      return ERROR;
 
   if ( IsZero(a) && IsZero(b) && IsZero(c) )
       return SQEQ_INF;
@@ -59,7 +53,7 @@ int SqEquation ( double a, double b, double c, double* x )
   if ( !IsZero(a) )
   {
       double d = 0;
-      d = SDis( a, b, c );
+      d = SearchDsnt( a, b, c );
 
       if ( d > 0 )
       {
@@ -93,7 +87,7 @@ void SqEquationTest()
 
     assert ( SqEquation(0, 0, 0, x) == SQEQ_INF);
     assert ( SqEquation(0, 0, 1, x) == 0 );
-    assert ( SqEquation(1, 1, 1, x) == 0 );
+    assert ( SqEquation(1, 1, 1, x) == ERROR );
     assert ( SqEquation(1, 2, 1, x) == 1 && IsEql(x[0], -1) );
     assert ( SqEquation(1, -5, 6, x) == 2 && IsEql(x[0], 2) && IsEql (x[1], 3) );
     assert ( SqEquation(0, 1, 1, x) == 1 && IsEql(x[0], -1) );
