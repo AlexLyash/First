@@ -6,12 +6,12 @@ const int SQEQ_INF = -1;
 const int ERROR = 404;
 const double e = 0.0000000001;
 
-//! Search discriminant quadratic equation
+//! Search for discriminant quadratic equation
 //! @param a coefficient of x^2
 //! @param b coefficient of x
 //! @param c free coefficient
 //! @return discriminant
-double SearhDst ( double a, double b, double c )
+double SearhDst( double a, double b, double c )
 {
     return b*b - 4*a*c;
 }
@@ -19,7 +19,7 @@ double SearhDst ( double a, double b, double c )
 //! Comparison with zero with a precision equal to e ( line 7 )
 //! @param a compare numbers
 //! @return true, if a is zero, or false,if a not zero
-bool IsZero ( double a )
+bool IsZero( double a )
 {
     return ( fabs( a ) < e );
 
@@ -29,7 +29,7 @@ bool IsZero ( double a )
 //! @param a first compare numbers
 //! @param b second compare numbers
 //! @return true, if a equals b, or false,if a not equals b
-bool IsEql ( double a, double b )
+bool IsEql( double a, double b )
 {
     return ( fabs( a - b ) < e );
 }
@@ -40,7 +40,7 @@ bool IsEql ( double a, double b )
 //! @param c free coefficient
 //! @param x roots array
 //! @return number of roots or SQEQ_INF, if infinitely many roots
-int SqEquation ( double a, double b, double c, double* x )
+int SqEquation( double a, double b, double c, double* x )
 {
 
     assert( x );
